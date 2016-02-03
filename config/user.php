@@ -30,7 +30,7 @@
 # On commence par dÃ©lÃ©guer l'authentification/autorisation Ã  ezticket
 # Remarque : notez le parametre "gate=" qui permet Ã  ezticket de revenir sur le bon ezproxy une fois l'authentification rÃ©ussie
 <?php
-require("ezproxyticket.php");
+require("./utils/ezproxyticket.php");
 $ezproxy = new EZproxyTicket("http://ezproxy.yourlib.org:2048", "shhhh", "someuser");
 ?>
 

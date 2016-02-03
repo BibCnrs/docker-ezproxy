@@ -4,7 +4,7 @@
 #
 
 # On ecoute sur fede-dev (cad les flux entrent par fede-dev)
-Interface <?php echo getenv('http_proxy'); ?>
+Interface <?php echo getenv('PROXY_OUT'); ?>
 
 
 # * "LoginPort -virtual" permet d'indiquer a ezproxy qu'il doit utiliser
@@ -67,3 +67,18 @@ Option X-Forwarded-For
 # (c'est le cas avec Web of Science)
 ClientTimeout 300
 RemoteTimeout 300
+
+COOKIENAME  <?php echo getenv('COOKIE_NAME'); ?>
+
+## Parametrages des ports et des interfaces rÃ©seaux
+# gate1.dev.inist.fr sera utilisÃ© pour les rÃ©Ã©critures d'url
+Name <?php echo getenv('GATE_NAME'); ?>
+
+# On Ã©coute sur fede-dev.intra.inist.fr:50162 (pour http) et fede-dev.intra.inist.fr:50169 (pour https)
+# cf http://www.usefulutilities.com/support/cfg/interface/
+LoginPort 50162
+LoginPortSSL 50169
+
+Group  <?php echo getenv('GROUP_NAME'); ?>
+
+IncludeFile ./editors.txt
