@@ -47,4 +47,3 @@ class EZproxyTicket {
     return $this->EZproxyStartingPointURL . "&url=" . $url;
   }
 }
-?>
