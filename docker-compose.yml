@@ -1,0 +1,29 @@
+dnsmasq:
+    image: andyshinn/dnsmasq:2.75
+    cap_add:
+        - NET_ADMIN
+    environment:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
+    links:
+        - ezproxy
+    ports:
+        - 127.0.0.1:53:53/udp
+        - 127.0.0.1:53:53/tcp
+    command: -S /.dev.com/8.8.8.8 -A /.dev.com/8.8.8.8
+
+ezproxy:
+    build: ./
+    volumes:
+        - ./config:/usr/local/ezproxy/config
+    environment:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
+        INTERFACE: localhost
+        COOKIE_NAME: bibliovie
+        GATE_NAME: dev.com
+        GROUP_NAME: group
+    ports:
+        - 50162:50162
+        - 2048:2048
+        - 80:80

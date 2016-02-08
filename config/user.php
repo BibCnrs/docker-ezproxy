@@ -20,7 +20,7 @@
 # For example, the following line would create a username of rdoe with
 # a password of keepsafe that has administrative access to the EZproxy server.
 #
-#      rdoe:keepsafe:admin
+rdoe:keepsafe:admin
 
 
 # For more information on this file and the options for user

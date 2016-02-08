@@ -15,7 +15,7 @@ COPY ezproxy-5.4.1 ./ezproxy
 RUN chmod 755 ./ezproxy
 COPY docker-entrypoint.sh /entrypoint.sh
 
-EXPOSE 2048
+EXPOSE 50162
+EXPOSE 80
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/usr/local/ezproxy/ezproxy"]
