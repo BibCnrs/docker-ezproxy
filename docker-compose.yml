@@ -5,25 +5,27 @@ dnsmasq:
     environment:
         http_proxy: ${http_proxy}
         https_proxy: ${https_proxy}
-    links:
-        - ezproxy
     ports:
         - 127.0.0.1:53:53/udp
         - 127.0.0.1:53:53/tcp
-    command: -S /.dev.com/8.8.8.8 -A /.dev.com/8.8.8.8
+    command: -S /.gate.dev.com/127.0.0.1 -A /.gate.dev.com/127.0.0.1
 
 ezproxy:
-    build: ./
+    image: bibcnrs/ezproxy
     volumes:
         - ./config:/usr/local/ezproxy/config
+    links:
+        - dnsmasq
     environment:
         http_proxy: ${http_proxy}
         https_proxy: ${https_proxy}
-        INTERFACE: localhost
+        INTERFACE: Any
         COOKIE_NAME: bibliovie
-        GATE_NAME: dev.com
-        GROUP_NAME: group
+        GATE_NAME: gate.dev.com
+        GROUP_NAME: bibliovie
+        APPNAME_USER: root
+        APPNAME_GROUP: root
+        ENV: DEV
     ports:
         - 50162:50162
-        - 2048:2048
         - 80:80

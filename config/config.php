@@ -6,7 +6,6 @@
 # On ecoute sur fede-dev (cad les flux entrent par fede-dev)
 Interface <?php echo getenv('INTERFACE'); ?>
 
-
 # * "LoginPort -virtual" permet d'indiquer a ezproxy qu'il doit utiliser
 #   le port 80 (ou 443) dans la rÃ©ecriture des urls mais qu'il ne doit pas Ã©couter dessus.
 # * Un second LoginPort utilise pour Ã©couter est definit dans les fichiers de config
@@ -14,6 +13,8 @@ Interface <?php echo getenv('INTERFACE'); ?>
 <?php if (getenv('ENV') != 'DEV') { ?>
 LoginPort -virtual 80
 LoginPortSSL -virtual 443
+<?php } else { ?>
+XDebug 1000
 <?php } ?>
 
 # lance ezproxy en tant que user=fedegate group=fedegate
@@ -81,6 +82,9 @@ Name <?php echo getenv('GATE_NAME'); ?>
 LoginPort 50162
 LoginPortSSL 50169
 
-Group  <?php echo getenv('GROUP_NAME'); ?>
+<?php if (getenv('ENV') == 'DEV') { ?>
+Proxy proxyout.inist.fr:8080
+ProxySSL proxyout.inist.fr:8080
+<?php } ?>
 
 IncludeFile ./editors.txt

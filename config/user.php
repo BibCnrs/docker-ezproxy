@@ -22,7 +22,6 @@
 #
 rdoe:keepsafe:admin
 
-
 # For more information on this file and the options for user
 # authentication, see:
 #      http://www.usefulutilities.com/support/usr/
@@ -35,9 +34,9 @@ $ezproxy = new EZproxyTicket("http://ezproxy.yourlib.org:2048", "shhhh", "someus
 ?>
 
 # L'authentification par ticket (couplÃ©e au module ezticket ci-dessus)
-::Ticket
-AcceptGroups domain1+domain2
-TimeValid 10
-MD5 secret
-Expired; Deny expired.html
-/Ticket
+#::Ticket
+#AcceptGroups bibliovie+shs+admin
+#TimeValid 10
+#MD5 secret
+#Expired; Deny expired.html
+#/Ticket
