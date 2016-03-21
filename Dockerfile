@@ -8,8 +8,9 @@ RUN apt-get update \
 
 WORKDIR /usr/local/ezproxy
 
-COPY ezproxy-5.4.1 ./ezproxy
-RUN chmod 755 ./ezproxy
+RUN curl -sS -k https://www.oclc.org/content/dam/support/ezproxy/documentation/download/binaries/6-1-10/ezproxy-linux.bin > ./ezproxy \
+&& chmod 755 ./ezproxy
+
 COPY docker-entrypoint.sh /entrypoint.sh
 
 EXPOSE 50162
