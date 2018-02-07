@@ -5,7 +5,7 @@ ENV VERSION 6-3-5
 MAINTAINER BibCNRS <bibcnrs@inist.fr>
 
 RUN apt-get update \
-  && apt-get -y install php5 curl lib32z1 dnsutils vim  \
+  && apt-get -y install curl lib32z1 dnsutils vim  \
   && apt-get clean
 
 WORKDIR /usr/local/ezproxy
