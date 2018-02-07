@@ -1,5 +1,7 @@
 FROM php:5.6-cli
 
+ENV VERSION 6-3-5
+
 MAINTAINER BibCNRS <bibcnrs@inist.fr>
 
 RUN apt-get update \
@@ -8,7 +10,7 @@ RUN apt-get update \
 
 WORKDIR /usr/local/ezproxy
 
-RUN curl -sS -k https://www.oclc.org/content/dam/support/ezproxy/documentation/download/binaries/6-1-10/ezproxy-linux.bin > ./ezproxy \
+RUN curl -sS -k https://www.oclc.org/content/dam/support/ezproxy/documentation/download/binaries/$VERSION/ezproxy-linux.bin > ./ezproxy \
 && chmod 755 ./ezproxy
 
 COPY docker-entrypoint.sh /entrypoint.sh
