@@ -6,4 +6,4 @@ help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 build: ## build bibcnrs/ezproxy Dockerfile
-	docker build -t bibcnrs/ezproxy --build-arg http_proxy --build-arg https_proxy .
+	docker build -t vsnexus-registry.intra.inist.fr:8083/bibcnrs/bibezproxy --build-arg http_proxy --build-arg https_proxy .
