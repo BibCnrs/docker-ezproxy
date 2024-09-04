@@ -1,17 +1,16 @@
-FROM php:5.6-cli
+FROM php:8.3.11-cli
 
-ENV VERSION 6-3-5
-
-MAINTAINER BibCNRS <bibcnrs@inist.fr>
+LABEL fr.BibCNRS.image.authors="bibcnrs@inist.fr"
 
 RUN apt-get update \
   && apt-get -y install curl lib32z1 dnsutils vim  \
   && apt-get clean
 
+RUN mkdir /usr/local/ezproxy
 WORKDIR /usr/local/ezproxy
 
-RUN curl -sS -k https://www.oclc.org/content/dam/support/ezproxy/documentation/download/binaries/$VERSION/ezproxy-linux.bin > ./ezproxy \
-&& chmod 755 ./ezproxy
+COPY ./ezproxy-linux.bin ./ezproxy
+RUN chmod 755 ./ezproxy
 
 COPY docker-entrypoint.sh /entrypoint.sh
 
