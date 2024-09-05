@@ -4,7 +4,7 @@ if [ -n "$DNS_ADDR" ]; then
     sed "1s/^/nameserver $DNS_IP\n/" /etc/resolv.conf > /tmp/resolv.conf
     cp -f /tmp/resolv.conf /etc/
 fi
-/usr/local/ezproxy/ezproxy -m
+/usr/local/ezproxy/ezproxy -sd
 cp -rf config/* .
 for f in *.php; do php $f > "${f%.*}.txt"; done
 file="/usr/local/ezproxy/wskey.key"
