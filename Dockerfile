@@ -6,7 +6,6 @@ RUN apt-get update \
   && apt-get -y install curl lib32z1 dnsutils vim  \
   && apt-get clean
 
-RUN mkdir /usr/local/ezproxy
 WORKDIR /usr/local/ezproxy
 
 COPY ./ezproxy-linux.bin ./ezproxy
