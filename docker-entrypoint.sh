@@ -5,11 +5,11 @@ if [ -n "$DNS_ADDR" ]; then
     cp -f /tmp/resolv.conf /etc/
 fi
 /usr/local/ezproxy/ezproxy -m
-cp -rf config/* .
+#cp -rf config/* .
 
 file="/usr/local/ezproxy/wskey.key"
 if [ ! -f "$file" ]; then
     /usr/local/ezproxy/ezproxy -k $EZ_PROXY_KEY
 fi
 
-/usr/local/ezproxy/ezproxy -sd
+/usr/local/ezproxy/ezproxy -si -d
