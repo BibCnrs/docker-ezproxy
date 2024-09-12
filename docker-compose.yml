@@ -1,0 +1,11 @@
+services:
+  ezproxy:
+    image: vxnexus-registry.intra.inist.fr:8083/bibcnrs/bibezproxy:7.3.8
+    network_mode: host
+    hostname: 0.0.0.0
+    restart: unless-stopped
+    environment:
+      - TZ=YOUR_TIMEZONE_HERE
+      - EZPROXY_WSKEY=YOUR_EZPROXY_WSKEY_HERE
+    volumes:
+      - ./ezproxy/config:/usr/local/ezproxy/config
