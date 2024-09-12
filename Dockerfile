@@ -1,6 +1,4 @@
-FROM php:8.3.11-cli
-
-LABEL fr.BibCNRS.image.authors="bibcnrs@inist.fr"
+FROM ubuntu:24.04
 
 RUN apt-get update \
   && apt-get -y install curl lib32z1 dnsutils vim  \

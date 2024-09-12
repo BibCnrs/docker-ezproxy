@@ -6,7 +6,7 @@ if [ -n "$DNS_ADDR" ]; then
 fi
 /usr/local/ezproxy/ezproxy -m
 cp -rf config/* .
-for f in *.php; do php $f > "${f%.*}.txt"; done
+
 file="/usr/local/ezproxy/wskey.key"
 if [ ! -f "$file" ]; then
     /usr/local/ezproxy/ezproxy -k $EZ_PROXY_KEY
