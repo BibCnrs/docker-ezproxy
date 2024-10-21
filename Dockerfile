@@ -1,9 +1,9 @@
-FROM debian:stable-slim
+FROM debian:bullseye
 RUN \
   apt-get update \
-  && apt-get -y install --no-install-recommends \
-  wget
+  && apt-get -y install --no-install-recommends
 COPY ./docker-run.sh /
+WORKDIR /usr/local/ezproxy
 RUN chmod +x /docker-run.sh
 RUN mkdir -p /usr/local/ezproxy/config
 COPY ./ezproxy-linux-7.3.8.bin /usr/local/ezproxy/ezproxy
