@@ -9,10 +9,10 @@ then
 fi
 echo -e "[$(date)] [\e[33mdocker-run.sh\e[39m] Generating missing files (if any) . . ."
 /usr/local/ezproxy/ezproxy -m > /dev/null
-cp config/*.txt .
+cp config/$GATE_NAME/*.txt .
 cp -r config/authorization .
 cp -r config/ssl .
-echo -e "[$(date)] [\e[33mdocker-run.sh\e[39m] \e[33mcp config done\e[39m"
+echo -e "[$(date)] [\e[33mdocker-run.sh\e[39m] \e[33mcp config $GATE_NAME done\e[39m"
 if [ ! -f /usr/local/ezproxy/wskey.key ]
 then
   echo -e "[$(date)] [\e[33mdocker-run.sh\e[39m] \e[33mwskey.key was not found in /usr/local/ezproxy/.\e[39m"
