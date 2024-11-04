@@ -1,4 +1,4 @@
-FROM php:5.6-cli
+FROM phusion/baseimage:0.9.18
 
 ENV VERSION 6-3-5
 
